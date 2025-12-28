@@ -1,25 +1,3 @@
-\documentclass[11pt,a4paper]{article}
-
-\usepackage[serbian]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath, amssymb}
-\usepackage{graphicx}
-\usepackage{geometry}
-\usepackage{setspace}
-
-\geometry{margin=2.5cm}
-\setstretch{1.1}
-
-\title{Ridge regresija}
-\author{Filip Mar\v ci\'c}
-\date{}
-
-\begin{document}
-\maketitle
-
-\section*{Uvod}
-
 Na osnovu broja indexa \textbf{3318} dodeljeni zadatak je implementacija
 \textbf{Ridge regresije} (linearne regresiju sa L2 regularizacijom), no u ovom domacem je napravljen promenljiva kojom proizvoljno mozemo menjati stepen (sa podrazumevanom vrednoscu 3).
 \textbf{ponovljene k-fold
@@ -53,29 +31,3 @@ Optimalna vrednost hiperparametra određena je kao:
 \[
 \lambda^* = \arg\min_{\lambda} \; \text{Average CV RMSE}.
 \]
-
-\noindent
-\textbf{Optimalni hiperparametar:}
-\[
-\lambda^* = \underline{45\hspace{2px}}
-\]
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.90\linewidth]{lambda.png}
-\caption{Average CV RMSE u zavisnosti od $\lambda$ (senčeno: $\pm 1$ std preko ponavljanja).}
-\label{fig:cv}
-\end{figure}
-
-\subsection*{Uticaj seed-a i randomizacije}
-
-Seed za generisanje slučajnih permutacija inicijalno se bira nasumično, što znači da
-se pri svakom pokretanju programa menjaju podele podataka na fold-ove.
-Ova randomizacija direktno utiče na izračunate vrednosti RMSE i može dovesti do
-različitog izbora optimalnog hiperparametra $\lambda^*$.
-
-Zbog toga je \textbf{seed izuzetno važan}, jer značajno utiče na stabilnost i
-reproduktivnost rezultata. Za konzistentne i uporedive rezultate preporučuje se
-fiksiranje seed-a (npr.\ $seed = 42$).
-
-\end{document}
